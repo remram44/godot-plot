@@ -1,5 +1,7 @@
 extends RigidBody
 
+export(NodePath) var graph
+
 const JUMP_IMPULSE: float = 8.0
 const MOVE_FORCE: float = 15.0
 
@@ -15,3 +17,10 @@ func _physics_process(delta):
 	move.z += Input.get_action_strength("move_down")
 	move.z -= Input.get_action_strength("move_up")
 	add_central_force(move * MOVE_FORCE)
+
+func _process(delta):
+	if graph:
+		var g = get_node(graph)
+		g.record_point("Pos X", translation.x)
+		g.record_point("Pos Y", translation.y)
+		g.record_point("Pos Z", translation.z)

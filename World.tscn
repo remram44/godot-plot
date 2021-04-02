@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Character.gd" type="Script" id=1]
+[ext_resource path="res://Plot.gd" type="Script" id=2]
+[ext_resource path="res://Barlow-Regular.otf" type="DynamicFontData" id=3]
 
 [sub_resource type="ConvexPolygonShape" id=1]
 points = PoolVector3Array( 25, 0, 25, 15, 0, 25, 5, 0, 25, -5, 0, 25, -15, 0, 25, -25, 0, 25, 25, 0, 15, 15, 0, 15, 5, 0, 15, -5, 0, 15, -15, 0, 15, -25, 0, 15, 25, 0, 5, 15, 0, 5, 5, 0, 5, -5, 0, 5, -15, 0, 5, -25, 0, 5, 25, 0, -5, 15, 0, -5, 5, 0, -5, -5, 0, -5, -15, 0, -5, -25, 0, -5, 25, 0, -15, 15, 0, -15, 5, 0, -15, -5, 0, -15, -15, 0, -15, -25, 0, -15, 25, 0, -25, 15, 0, -25, 5, 0, -25, -5, 0, -25, -15, 0, -25, -25, 0, -25 )
@@ -21,6 +23,10 @@ points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1,
 [sub_resource type="SpatialMaterial" id=6]
 albedo_color = Color( 0.184314, 0.180392, 1, 1 )
 
+[sub_resource type="DynamicFont" id=7]
+size = 12
+font_data = ExtResource( 3 )
+
 [node name="World" type="Spatial"]
 
 [node name="Floor" type="StaticBody" parent="."]
@@ -36,6 +42,7 @@ material/0 = SubResource( 5 )
 linear_damp = 2.0
 angular_damp = 2.0
 script = ExtResource( 1 )
+graph = NodePath("../Plot")
 
 [node name="CollisionShape" type="CollisionShape" parent="Character"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
@@ -48,3 +55,14 @@ material/0 = SubResource( 6 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.680734, 0.732531, 0, -0.732531, 0.680734, 0, 6.72085, 5.47631 )
+
+[node name="Plot" type="Panel" parent="."]
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.45
+anchor_bottom = 0.25
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+font = SubResource( 7 )
