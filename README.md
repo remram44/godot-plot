@@ -5,6 +5,9 @@ This is a simple plotting system intended for debugging. Easily plot time-based 
 
 All you have to do is attach the script to a `Panel` control and call `record_point("character position", my_object.translation.x)`
 
+![screenshot](screenshot.png)  
+*Plotting the position as 3 curves with default colors*
+
 Features
 --------
 
