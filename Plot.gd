@@ -1,4 +1,4 @@
-extends Panel
+extends Control
 
 # The font to use for the  ticks
 export(Font) var font = null
