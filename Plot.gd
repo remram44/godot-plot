@@ -1,13 +1,13 @@
 extends Control
 
 # The font to use for the  ticks
-export(Font) var font = null
+@export var font: Font = null
 
 # The length of the horizontal axis (usually seconds)
-export(float) var x_axis = 10.0
+@export var x_axis: float = 10.0
 
 # The speed at which the axis will adjust to changed data range
-export(float) var lerp_axis = 0.1
+@export var lerp_axis: float = 0.1
 
 const COLORS = [
 	Color(1.0, 0.0, 0.0, 1.0),
@@ -26,7 +26,7 @@ var y_max: float = -INF
 
 func _process(delta):
 	current_time += delta
-	update()
+	queue_redraw()
 
 func get_ticks(low: float, high: float, minimum: int):
 	# Choose interval
@@ -72,7 +72,7 @@ func _draw():
 
 	# Compute plot area
 	var area_pos = Vector2(28, 2)
-	var area_size = rect_size - Vector2(30, 17)
+	var area_size = size - Vector2(30, 17)
 
 	# Draw axes
 	draw_line(area_pos, area_pos + Vector2(0.0, area_size.y), Color(1.0, 1.0, 1.0, 1.0))
@@ -95,6 +95,7 @@ func _draw():
 				area_size.y + font.get_ascent() + 2
 			),
 			text,
+			0, -1, 12,
 			Color(1.0, 1.0, 1.0, 1.0)
 		)
 
@@ -112,6 +113,7 @@ func _draw():
 				y + font.get_ascent() - 0.5 * font.get_height()
 			),
 			text,
+			0, -1, 12,
 			Color(1.0, 1.0, 1.0, 1.0)
 		)
 
@@ -134,7 +136,7 @@ func _draw():
 		draw_curve(name, curves[name], curve_colors[name], area_pos, area_size)
 
 func draw_curve(name: String, array: Array, color: Color, area_pos: Vector2, area_size: Vector2):
-	var points = PoolVector2Array()
+	var points = PackedVector2Array()
 	for i in range(len(array)):
 		var x = array[i][0]
 		x = (x - (current_time - x_axis)) / x_axis * area_size.x + area_pos.x

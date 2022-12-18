@@ -1,68 +1,89 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=3 uid="uid://bvnie0ty3bnwh"]
 
-[ext_resource path="res://Character.gd" type="Script" id=1]
-[ext_resource path="res://Plot.gd" type="Script" id=2]
-[ext_resource path="res://Barlow-Regular.otf" type="DynamicFontData" id=3]
+[ext_resource type="Script" path="res://Character.gd" id="1"]
+[ext_resource type="Script" path="res://Plot.gd" id="2"]
+[ext_resource type="FontFile" uid="uid://c6jsacod8m6lg" path="res://Barlow-Regular.otf" id="3"]
 
-[sub_resource type="ConvexPolygonShape" id=1]
-points = PoolVector3Array( 25, 0, 25, 15, 0, 25, 5, 0, 25, -5, 0, 25, -15, 0, 25, -25, 0, 25, 25, 0, 15, 15, 0, 15, 5, 0, 15, -5, 0, 15, -15, 0, 15, -25, 0, 15, 25, 0, 5, 15, 0, 5, 5, 0, 5, -5, 0, 5, -15, 0, 5, -25, 0, 5, 25, 0, -5, 15, 0, -5, 5, 0, -5, -5, 0, -5, -15, 0, -5, -25, 0, -5, 25, 0, -15, 15, 0, -15, 5, 0, -15, -5, 0, -15, -15, 0, -15, -25, 0, -15, 25, 0, -25, 15, 0, -25, 5, 0, -25, -5, 0, -25, -15, 0, -25, -25, 0, -25 )
+[sub_resource type="ConvexPolygonShape3D" id="1"]
+points = PackedVector3Array(25, 0, 25, 15, 0, 25, 5, 0, 25, -5, 0, 25, -15, 0, 25, -25, 0, 25, 25, 0, 15, 15, 0, 15, 5, 0, 15, -5, 0, 15, -15, 0, 15, -25, 0, 15, 25, 0, 5, 15, 0, 5, 5, 0, 5, -5, 0, 5, -15, 0, 5, -25, 0, 5, 25, 0, -5, 15, 0, -5, 5, 0, -5, -5, 0, -5, -15, 0, -5, -25, 0, -5, 25, 0, -15, 15, 0, -15, 5, 0, -15, -5, 0, -15, -15, 0, -15, -25, 0, -15, 25, 0, -25, 15, 0, -25, 5, 0, -25, -5, 0, -25, -15, 0, -25, -25, 0, -25)
 
-[sub_resource type="PlaneMesh" id=2]
-size = Vector2( 50, 50 )
+[sub_resource type="PlaneMesh" id="2"]
+size = Vector2(50, 50)
 subdivide_width = 4
 subdivide_depth = 4
 
-[sub_resource type="SpatialMaterial" id=5]
-albedo_color = Color( 1, 0.74902, 0.6, 1 )
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0swaa"]
+albedo_color = Color(0.25098, 0.560784, 0.32549, 1)
 
-[sub_resource type="ConvexPolygonShape" id=4]
-points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
+[sub_resource type="ConvexPolygonShape3D" id="4"]
+points = PackedVector3Array(-1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1)
 
-[sub_resource type="CubeMesh" id=3]
+[sub_resource type="BoxMesh" id="3"]
 
-[sub_resource type="SpatialMaterial" id=6]
-albedo_color = Color( 0.184314, 0.180392, 1, 1 )
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0u1f"]
+albedo_color = Color(1, 0.392157, 0.0352941, 1)
 
-[sub_resource type="DynamicFont" id=7]
-size = 12
-font_data = ExtResource( 3 )
+[sub_resource type="FontFile" id="7"]
+fallbacks = [ExtResource("3")]
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[node name="World" type="Spatial"]
+[sub_resource type="Environment" id="Environment_h0jkh"]
+ambient_light_source = 3
 
-[node name="Floor" type="StaticBody" parent="."]
+[node name="World3D" type="Node3D"]
 
-[node name="CollisionShape" type="CollisionShape" parent="Floor"]
-shape = SubResource( 1 )
+[node name="Floor" type="StaticBody3D" parent="."]
 
-[node name="MeshInstance" type="MeshInstance" parent="Floor"]
-mesh = SubResource( 2 )
-material/0 = SubResource( 5 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("1")
 
-[node name="Character" type="RigidBody" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("2")
+surface_material_override/0 = SubResource("StandardMaterial3D_0swaa")
+
+[node name="Character" type="RigidBody3D" parent="."]
 linear_damp = 2.0
 angular_damp = 2.0
-script = ExtResource( 1 )
+script = ExtResource("1")
 graph = NodePath("../Plot")
 
-[node name="CollisionShape" type="CollisionShape" parent="Character"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 4 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Character"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("4")
 
-[node name="MeshInstance" type="MeshInstance" parent="Character"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-mesh = SubResource( 3 )
-material/0 = SubResource( 6 )
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Character"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("3")
+surface_material_override/0 = SubResource("StandardMaterial3D_l0u1f")
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.680734, 0.732531, 0, -0.732531, 0.680734, 0, 6.72085, 5.47631 )
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.680734, 0.732531, 0, -0.732531, 0.680734, 1.28334, 6.72085, 5.47631)
 
 [node name="Plot" type="Panel" parent="."]
+anchors_preset = -1
 anchor_left = 0.05
 anchor_top = 0.05
 anchor_right = 0.45
 anchor_bottom = 0.25
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-font = SubResource( 7 )
+script = ExtResource("2")
+font = SubResource("7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h0jkh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.937807, 0.271542, -0.216294, -0.181248, 0.914363, 0.362064, 0.296086, -0.300343, 0.906712, -5.69748, 7.34778, 0)
+shadow_enabled = true
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Move the block around with the cursor keys, space to jump."
