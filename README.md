@@ -1,3 +1,5 @@
+For a more complete solution, check out [easy-charts](https://github.com/fenix-hub/godot-engine.easy-charts)
+
 Godot plotting script
 =====================
 
