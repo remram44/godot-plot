@@ -1,6 +1,6 @@
-extends RigidBody
+extends RigidBody3D
 
-export(NodePath) var graph
+@export var graph: NodePath
 
 const JUMP_IMPULSE: float = 8.0
 const MOVE_FORCE: float = 15.0
@@ -16,11 +16,11 @@ func _physics_process(delta):
 	move.x -= Input.get_action_strength("move_left")
 	move.z += Input.get_action_strength("move_down")
 	move.z -= Input.get_action_strength("move_up")
-	add_central_force(move * MOVE_FORCE)
+	apply_central_force(move * MOVE_FORCE)
 
 func _process(delta):
 	if graph:
 		var g = get_node(graph)
-		g.record_point("Pos X", translation.x)
-		g.record_point("Pos Y", translation.y)
-		g.record_point("Pos Z", translation.z)
+		g.record_point("Pos X", position.x)
+		g.record_point("Pos Y", position.y)
+		g.record_point("Pos Z", position.z)
